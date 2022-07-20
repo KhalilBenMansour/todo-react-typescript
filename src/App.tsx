@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.scss";
 import AddTodo from "./component/addtodo/AddTodo";
 import TodoList from "./component/todoList/TodoList";
+
 export interface TodoType {
   id: string;
   text: string;
