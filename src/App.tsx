@@ -24,8 +24,11 @@ function App() {
           <span className="heading__title">todo list</span>
           <button className="heading__button">toggle all</button>
         </div>
-        <TodoList todos={todos} />
-        <AddTodo addTodo={addTodo} />
+        <div className="body">
+          <TodoList todos={todos} />
+
+          <AddTodo addTodo={addTodo} />
+        </div>
       </div>
     </div>
   );
