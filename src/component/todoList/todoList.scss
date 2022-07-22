@@ -1,0 +1,45 @@
+.list {
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 0 0 1em;
+    &__input {
+      cursor: pointer;
+      opacity: 0;
+      position: absolute;
+      &:hover + label::before {
+        background-color: #ccc;
+      }
+      &:checked + label::before {
+        content: "\002714";
+        background-color: #e91e63;
+        color: white;
+        display: flex;
+        align-items: center;
+      }
+      &:checked + label {
+        text-decoration: line-through;
+      }
+
+      &:focus + label::before {
+        box-shadow: 0 0 5px black;
+      }
+    }
+    &__label {
+      cursor: pointer;
+      display: flex;
+
+      &::before {
+        content: "";
+        width: 1em;
+        height: 1em;
+        border: 0.05em solid #ccc;
+        margin-right: 0.5em;
+        border-radius: 0.15em;
+      }
+      &:hover::before {
+        background-color: #ccc;
+      }
+    }
+  }
+}
