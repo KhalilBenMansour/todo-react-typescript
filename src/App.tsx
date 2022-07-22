@@ -20,8 +20,12 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <AddTodo addTodo={addTodo} />
+        <div className="heading">
+          <span className="heading__title">todo list</span>
+          <button className="heading__button">toggle all</button>
+        </div>
         <TodoList todos={todos} />
+        <AddTodo addTodo={addTodo} />
       </div>
     </div>
   );
