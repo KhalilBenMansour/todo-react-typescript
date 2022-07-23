@@ -29,6 +29,16 @@ function App() {
 
           <AddTodo addTodo={addTodo} />
         </div>
+        <div className="footer">
+          <div className="left">
+            <button className="left__button">all</button>
+            <button className="left__button">active</button>
+          </div>
+          <div className="right">
+            <span className="right__span">3 left</span>
+            <button className="right__button">clear completed(2)</button>
+          </div>
+        </div>
       </div>
     </div>
   );

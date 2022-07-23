@@ -9,7 +9,6 @@
     color: #535353;
     margin-left: auto;
     margin-right: auto;
-    padding: 1em;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -46,6 +45,85 @@
     }
     .body {
       padding: 1em 1.25em 0;
+    }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5em 1.25em;
+      background-color: #eee;
+      border-top: 1px solid #f7f7f7;
+      .left {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 0.25em;
+        &__button {
+          box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+          cursor: pointer;
+          padding: 0 0.5em;
+          text-transform: capitalize;
+          color: #464646;
+          background-color: #ffffff;
+          border-color: #e0e0e0;
+          font-size: 12px;
+          line-height: 1.5;
+          border-radius: 1px;
+          border: 1px solid transparent;
+          white-space: nowrap;
+          &:active {
+            color: #464646;
+            background-color: #e6e6e6;
+            border-color: #c1c1c1;
+          }
+          &:hover {
+            box-shadow: 0 2px 4px -1px rgb(0 0 0 / 10%),
+              0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+          }
+        }
+      }
+      .right {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 0.25em;
+        &__span {
+          box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+          padding: 0 0.5em;
+          font-size: 12px;
+          line-height: 1.5;
+          border-radius: 1px;
+          background-color: white;
+          cursor: default;
+          &:hover {
+            background-color: #464646;
+            color: white;
+          }
+        }
+        &__button {
+          box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+          cursor: pointer;
+          padding: 0 0.5em;
+          text-transform: capitalize;
+          color: #ffffff;
+          background-color: #e91e63;
+          border-color: #e8175e;
+          font-size: 12px;
+          line-height: 1.5;
+          border-radius: 1px;
+          border: 1px solid transparent;
+          white-space: nowrap;
+          &:active {
+            color: #ffffff;
+            background-color: #c1134e;
+            border-color: #b11148;
+          }
+          &:hover {
+            color: #ffffff;
+            background-color: #c1134e;
+            border-color: #b11148;
+            box-shadow: 0 2px 4px -1px rgb(0 0 0 / 10%),
+              0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+          }
+        }
+      }
     }
   }
 }
