@@ -31,6 +31,10 @@ function App() {
     });
     setTodos(newTodos);
   };
+  const deleteTodo = (id: string) => {
+    const newTodos = todos.filter((e) => e.id !== id);
+    setTodos(newTodos);
+  };
   return (
     <div className="App">
       <div className="container">
@@ -39,7 +43,11 @@ function App() {
           <button className="heading__button">toggle all</button>
         </div>
         <div className="body">
-          <TodoList todos={todos} changeStatus={changeStatus} />
+          <TodoList
+            todos={todos}
+            changeStatus={changeStatus}
+            deleteTodo={deleteTodo}
+          />
 
           <AddTodo addTodo={addTodo} />
         </div>
