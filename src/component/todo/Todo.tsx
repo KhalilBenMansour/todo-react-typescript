@@ -1,19 +1,23 @@
-import React from "react";
 import type { TodoType } from "../../App";
-
+import "./todo.scss";
 interface Props {
   todo: TodoType;
+  changeStatus: (todo: TodoType) => void;
 }
-const Todo = ({ todo }: Props) => {
+const Todo = ({ todo, changeStatus }: Props) => {
+  const handleChange = () => {
+    changeStatus(todo);
+  };
   return (
     <li className="list__item">
       <label className="list__item__label">
         <input
           className="list__item__input"
           type="checkbox"
-          name={`${todo.id}`}
+          id={todo.id}
+          onChange={handleChange}
         />
-        {todo.text}
+        <span className="list__item__text">{todo.text}</span>
       </label>
     </li>
   );
