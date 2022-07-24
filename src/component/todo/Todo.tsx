@@ -5,7 +5,18 @@ interface Props {
   todo: TodoType;
 }
 const Todo = ({ todo }: Props) => {
-  return <li>{todo.text}</li>;
+  return (
+    <li className="list__item">
+      <label className="list__item__label">
+        <input
+          className="list__item__input"
+          type="checkbox"
+          name={`${todo.id}`}
+        />
+        {todo.text}
+      </label>
+    </li>
+  );
 };
 
 export default Todo;
