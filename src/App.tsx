@@ -20,8 +20,25 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <AddTodo addTodo={addTodo} />
-        <TodoList todos={todos} />
+        <div className="heading">
+          <span className="heading__title">todo list</span>
+          <button className="heading__button">toggle all</button>
+        </div>
+        <div className="body">
+          <TodoList todos={todos} />
+
+          <AddTodo addTodo={addTodo} />
+        </div>
+        <div className="footer">
+          <div className="left">
+            <button className="left__button">all</button>
+            <button className="left__button">active</button>
+          </div>
+          <div className="right">
+            <span className="right__span">3 left</span>
+            <button className="right__button">clear completed(2)</button>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,17 +1,18 @@
 .addform {
-  background-color: blue;
-  //   padding: 1em;
-  width: 80%;
-  height: 3em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 1em -1em 0;
   &__input {
-    height: 2em;
-    width: 70%;
-  }
-  &__button {
-    width: 5em;
-    height: 2em;
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #eee;
+    border-left: 0;
+    border-right: 0;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    &:focus {
+      background-color: #f7f7f7;
+    }
   }
 }

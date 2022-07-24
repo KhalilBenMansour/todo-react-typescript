@@ -22,11 +22,10 @@ const AddTodo = ({ addTodo }: Props) => {
       <input
         type="text"
         className="addform__input"
-        placeholder="Add Todo..."
+        placeholder="Write some todo task here..."
         onChange={handleChange}
         value={textTodo}
       />
-      <button className="addform__button">Add</button>
     </form>
   );
 };
