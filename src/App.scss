@@ -56,6 +56,10 @@
         display: grid;
         grid-template-columns: auto auto;
         gap: 0.25em;
+        .active {
+          background-color: #535353;
+          color: white;
+        }
         &__button {
           box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
           cursor: pointer;
@@ -69,11 +73,13 @@
           border-radius: 1px;
           border: 1px solid transparent;
           white-space: nowrap;
-          &:active {
+          &--active {
+            text-transform: capitalize;
             color: #464646;
-            background-color: #e6e6e6;
-            border-color: #c1c1c1;
+            background-color: #ffffff;
+            border-color: #e0e0e0;
           }
+
           &:hover {
             box-shadow: 0 2px 4px -1px rgb(0 0 0 / 10%),
               0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
