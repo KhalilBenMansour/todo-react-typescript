@@ -11,6 +11,7 @@ export interface TodoType {
 
 function App() {
   const [todos, setTodos] = useState<TodoType[]>([]);
+  const [filterType, setFilterType] = useState<"all" | "active">("all");
 
   const addTodo = (text: string) => {
     let index = todos.findIndex((e) => e.text === text);
@@ -20,6 +21,7 @@ function App() {
     setTodos([...todos, { id: Date.now().toString(), text, isDone: false }]);
   };
   const changeStatus = (todo: TodoType) => {
+    console.log("changeStatus");
     const todoobj = todos.filter((e) => e.id === todo.id)[0];
     const newTodo = { ...todoobj, isDone: !todoobj.isDone };
     const newTodos = [...todos].map((e) => {
@@ -45,6 +47,7 @@ function App() {
     });
     setTodos(newTodos);
   };
+
   return (
     <div className="App">
       <div className="container">
@@ -58,14 +61,29 @@ function App() {
             changeStatus={changeStatus}
             deleteTodo={deleteTodo}
             editTodos={editTodos}
+            type={filterType}
           />
 
           <AddTodo addTodo={addTodo} />
         </div>
         <div className="footer">
           <div className="left">
-            <button className="left__button">all</button>
-            <button className="left__button">active</button>
+            <button
+              className={
+                filterType === "all" ? "left__button active" : "left__button"
+              }
+              onClick={() => setFilterType("all")}
+            >
+              all
+            </button>
+            <button
+              className={
+                filterType === "active" ? "left__button active" : "left__button"
+              }
+              onClick={() => setFilterType("active")}
+            >
+              active
+            </button>
           </div>
           <div className="right">
             <span className="right__span">3 left</span>
