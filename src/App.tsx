@@ -35,6 +35,16 @@ function App() {
     const newTodos = todos.filter((e) => e.id !== id);
     setTodos(newTodos);
   };
+  const editTodos = (editTodo: TodoType) => {
+    const newTodos = [...todos].map((e) => {
+      if (e.id === editTodo.id) {
+        return editTodo;
+      } else {
+        return e;
+      }
+    });
+    setTodos(newTodos);
+  };
   return (
     <div className="App">
       <div className="container">
@@ -47,6 +57,7 @@ function App() {
             todos={todos}
             changeStatus={changeStatus}
             deleteTodo={deleteTodo}
+            editTodos={editTodos}
           />
 
           <AddTodo addTodo={addTodo} />

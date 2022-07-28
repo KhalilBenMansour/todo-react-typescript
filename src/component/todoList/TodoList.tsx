@@ -5,9 +5,10 @@ import "./todoList.scss";
 type Props = {
   todos: TodoType[];
   changeStatus: (todo: TodoType) => void;
+  editTodos: (todo: TodoType) => void;
   deleteTodo: (id: string) => void;
 };
-const TodoList = ({ todos, changeStatus, deleteTodo }: Props) => {
+const TodoList = ({ todos, changeStatus, deleteTodo, editTodos }: Props) => {
   return (
     <ul className="list">
       {todos.map((todo) => (
@@ -16,6 +17,7 @@ const TodoList = ({ todos, changeStatus, deleteTodo }: Props) => {
           changeStatus={changeStatus}
           todo={todo}
           deleteTodo={deleteTodo}
+          editTodos={editTodos}
         />
       ))}
     </ul>
