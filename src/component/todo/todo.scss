@@ -1,10 +1,86 @@
 .list__item {
+  padding: 0.5em;
+  background-color: #eee;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__right {
+    display: grid;
+    grid-template-columns: 1.5em 1.5em;
+    gap: 0.5em;
+    .edit {
+      padding: 0.25em;
+      cursor: pointer;
+      &:hover {
+        color: #e91e63;
+      }
+    }
+    .delete {
+      padding: 0.25em;
+      cursor: pointer;
+      &:hover {
+        color: #e91e63;
+      }
+    }
+  }
   &__label {
-    line-height: 1.1;
     display: grid;
     grid-template-columns: 1em auto;
+    width: 90%;
     gap: 0.5em;
+    align-items: center;
     cursor: pointer;
+    form {
+      display: flex;
+      border: none;
+      position: relative;
+      &:hover .save {
+        color: #e91e63;
+        cursor: pointer;
+      }
+      &:hover .close {
+        color: #e91e63;
+        cursor: pointer;
+      }
+      .edit-input {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -0.75em;
+        background-color: #eee;
+        border: none;
+        outline: none;
+        line-height: 1.2;
+        border-bottom: 2px solid #e91e63;
+        width: auto;
+      }
+      .save {
+        border: none;
+        background-color: transparent;
+        color: #eee;
+        position: absolute;
+        padding: 0.025em;
+        right: 1.5em;
+        top: -0.75em;
+        &:hover {
+          color: #e91e63;
+        }
+      }
+      .close {
+        border: none;
+        background-color: transparent;
+        color: #eee;
+        position: absolute;
+        padding: 0.025em;
+        right: 0;
+        top: -0.75em;
+        &:hover {
+          color: #e91e63;
+        }
+      }
+    }
+
     input[type="checkbox"] {
       cursor: pointer;
       appearance: none;
