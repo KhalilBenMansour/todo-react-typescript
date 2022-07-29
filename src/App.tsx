@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.scss";
 import AddTodo from "./component/addtodo/AddTodo";
 import TodoList from "./component/todoList/TodoList";
@@ -11,6 +11,8 @@ export interface TodoType {
 
 function App() {
   const [todos, setTodos] = useState<TodoType[]>([]);
+  const [filterType, setFilterType] = useState<"all" | "active">("all");
+  const [isToggle, setIsToggle] = useState<boolean>(false);
 
   const addTodo = (text: string) => {
     let index = todos.findIndex((e) => e.text === text);
@@ -20,6 +22,7 @@ function App() {
     setTodos([...todos, { id: Date.now().toString(), text, isDone: false }]);
   };
   const changeStatus = (todo: TodoType) => {
+    console.log("changeStatus");
     const todoobj = todos.filter((e) => e.id === todo.id)[0];
     const newTodo = { ...todoobj, isDone: !todoobj.isDone };
     const newTodos = [...todos].map((e) => {
@@ -45,12 +48,34 @@ function App() {
     });
     setTodos(newTodos);
   };
+  const numTodosLeft = todos.filter((todo) => todo.isDone === false).length;
+  const numCompleted = todos.length - numTodosLeft;
+  const handleClear = () => {
+    const newTodos = todos.filter((todo) => !todo.isDone);
+    setTodos(newTodos);
+  };
+  const handleToggle = () => {
+    console.log(isToggle);
+    const newTodos = [...todos].map((todo) => {
+      return { ...todo, isDone: isToggle };
+    });
+    setTodos(newTodos);
+  };
+  useEffect(() => {
+    handleToggle();
+  }, [isToggle]);
+
   return (
     <div className="App">
       <div className="container">
         <div className="heading">
           <span className="heading__title">todo list</span>
-          <button className="heading__button">toggle all</button>
+          <button
+            className="heading__button"
+            onClick={() => setIsToggle(!isToggle)}
+          >
+            toggle all
+          </button>
         </div>
         <div className="body">
           <TodoList
@@ -58,18 +83,36 @@ function App() {
             changeStatus={changeStatus}
             deleteTodo={deleteTodo}
             editTodos={editTodos}
+            type={filterType}
           />
 
           <AddTodo addTodo={addTodo} />
         </div>
         <div className="footer">
           <div className="left">
-            <button className="left__button">all</button>
-            <button className="left__button">active</button>
+            <button
+              className={
+                filterType === "all" ? "left__button active" : "left__button"
+              }
+              onClick={() => setFilterType("all")}
+            >
+              all
+            </button>
+            <button
+              className={
+                filterType === "active" ? "left__button active" : "left__button"
+              }
+              onClick={() => setFilterType("active")}
+            >
+              active
+            </button>
           </div>
           <div className="right">
-            <span className="right__span">3 left</span>
-            <button className="right__button">clear completed(2)</button>
+            <span className="right__span">{`${numTodosLeft} left`}</span>
+            <button
+              className="right__button"
+              onClick={handleClear}
+            >{`clear completed (${numCompleted})`}</button>
           </div>
         </div>
       </div>

@@ -7,11 +7,20 @@ type Props = {
   changeStatus: (todo: TodoType) => void;
   editTodos: (todo: TodoType) => void;
   deleteTodo: (id: string) => void;
+  type: "all" | "active";
 };
-const TodoList = ({ todos, changeStatus, deleteTodo, editTodos }: Props) => {
+const TodoList = ({
+  todos,
+  changeStatus,
+  deleteTodo,
+  editTodos,
+  type,
+}: Props) => {
+  const filteredTodos =
+    type === "active" ? todos.filter((e) => e.isDone === false) : todos;
   return (
     <ul className="list">
-      {todos.map((todo) => (
+      {filteredTodos.map((todo) => (
         <Todo
           key={todo.id}
           changeStatus={changeStatus}

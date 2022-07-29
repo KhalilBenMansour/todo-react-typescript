@@ -53,6 +53,7 @@ const Todo = ({ todo, changeStatus, deleteTodo, editTodos }: Props) => {
           disabled={isEdit ? true : false}
           id={todo.id}
           onChange={handleChange}
+          checked={todo.isDone}
         />
         {!isEdit ? (
           <span className="list__item__text">{todo.text}</span>
