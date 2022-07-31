@@ -76,12 +76,12 @@ const Todo = ({ todo, changeStatus, deleteTodo, editTodos }: Props) => {
         )}
       </label>
       <div className="list__item__right">
-        <span className="edit" onClick={handleEdit}>
+        <button className="edit" onClick={handleEdit}>
           <AiFillEdit />
-        </span>
-        <span className="delete" onClick={handleDelete}>
+        </button>
+        <button className="delete" onClick={handleDelete}>
           <AiFillDelete />
-        </span>
+        </button>
       </div>
     </li>
   );

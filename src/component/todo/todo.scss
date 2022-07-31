@@ -10,6 +10,8 @@
     grid-template-columns: 1.5em 1.5em;
     gap: 0.5em;
     .edit {
+      color: #535353;
+      border: none;
       padding: 0.25em;
       cursor: pointer;
       &:hover {
@@ -17,6 +19,8 @@
       }
     }
     .delete {
+      color: #535353;
+      border: none;
       padding: 0.25em;
       cursor: pointer;
       &:hover {
