@@ -68,16 +68,16 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <div className="heading">
-          <span className="heading__title">todo list</span>
+        <header className="heading">
+          <h1 className="heading__title">todo list</h1>
           <button
             className="heading__button"
             onClick={() => setIsToggle(!isToggle)}
           >
             toggle all
           </button>
-        </div>
-        <div className="body">
+        </header>
+        <main className="body">
           <TodoList
             todos={todos}
             changeStatus={changeStatus}
@@ -87,8 +87,8 @@ function App() {
           />
 
           <AddTodo addTodo={addTodo} />
-        </div>
-        <div className="footer">
+        </main>
+        <div className="footer" role="complementary">
           <div className="left">
             <button
               className={
